@@ -1,8 +1,48 @@
-#root {
-  padding: 2em;
-  text-align: center;
-}
-
 $dark: #3E363F;
 $red: #DD403A;
 $cream: #FFFCE8;
+
+.comment-box {
+  font-family: 'Raleway', sans-serif;
+  border-radius: 4px;
+  padding: 2em;
+  height: 100vh;
+  margin-top: 0.25em;
+  background-color: rgba($cream, 0.95);
+  opacity: 1;
+}
+
+body {
+    font-size: 1.5em;
+    font-family: 'Raleway', sans-serif;
+    background-color: $dark;
+}
+.blogpost {
+  font-family: 'Raleway', sans-serif;
+  border-radius: 4px;
+  padding: 2em;
+  margin-top: 3em;
+  background-color: rgba($cream, 0.95);
+  opacity: 1;
+}
+
+.comment-box-title {
+  padding-top: 0%;
+  margin-top: 0px;
+}
+
+.comment-textarea {
+  margin-top: 3px;
+}
+
+.hide-button {
+  margin-top: 3em;
+  padding-right: 30px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    color: $dark;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}

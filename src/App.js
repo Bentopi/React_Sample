@@ -32,15 +32,13 @@ class CommentBox extends React.Component {
     return(
       <div className='comment-box'>
 
-        <h2>Join the Discussion</h2>
+        <h2 className='comment-box-title text-center'>{this._getCommentCount(comments.length)}</h2>
 
         <CommentForm addComment={this._addComment.bind(this)} />
 
-        <div className='comment-count'>
-          {this._getCommentCount(comments.length)}
+        <div className='hide-button text-right col-xs-10 col-xs-offset-1'>
+          <button className='btn btn-default' onClick={this._toggleComments.bind(this)}>{buttonText}</button>
         </div>
-
-        <button onClick={this._toggleComments.bind(this)}>{buttonText}</button>
 
         {commentNodes}
       </div>
@@ -62,11 +60,11 @@ class CommentBox extends React.Component {
 
   _getCommentCount(commentCount) {
     if (commentCount === 0) {
-      return 'No comments yet, be the first!';
+      return 'No comments yet, be the first one!';
     } else if (commentCount === 1) {
-      return '1 comment';
+      return 'Only 1 comment so far, join in!';
     } else {
-      return `${commentCount} comments`
+      return `${commentCount} comments so far, join in!`
     }
   }
 
@@ -97,14 +95,18 @@ class CommentBox extends React.Component {
 class Comment extends React.Component {
   render() {
     return(
-      <div className='comment'>
-        <p className='comment-author'>{this.props.author}</p>
-        <p className='comment-body'>{this.props.body}</p>
-        <div className='comment-footer'>
+      <div className='comment col-xs-12'>
+        <div className='avatar'> </div>
+        <div className='comment-top'>
+          <p className='comment-author'>{this.props.author}</p>
           <a href='#' className='comment-delete' onClick={this._handleDelete.bind(this)}>
-            Delete Comment
+            Delete
           </a>
         </div>
+        <div className='comment-bottom'>
+          <p className='comment-body'>{this.props.body}</p>
+        </div>
+        <hr/>
       </div>
     );
   }
@@ -118,15 +120,15 @@ class Comment extends React.Component {
 class CommentForm extends React.Component {
   render() {
     return (
-      <form className="comment-form" onSubmit={this._handleSubmit.bind(this)}>
-        <div className="comment-fields">
-          <input placeholder="Name:" ref={(input) => this._author = input}/>
-          <textarea placeholder="Comment:" ref={(textarea) => this._body = textarea}>
+      <form className="comment-form col-xs-10 col-xs-offset-1" onSubmit={this._handleSubmit.bind(this)}>
+        <div className="comment-fields form-group col-xs-12">
+          <input placeholder="Name:" className='form-control' ref={(input) => this._author = input}/>
+          <textarea placeholder="Comment:" className='comment-textarea form-control' rows='3' ref={(textarea) => this._body = textarea}>
           </textarea>
         </div>
-        <div className="comment-submit">
-          <button type="submit">
-            Post comment
+        <div className="comment-submit text-right col-xs-12">
+          <button type="submit" className="btn btn-lg btn-default">
+            Post Comment
           </button>
         </div>
       </form>
@@ -139,6 +141,7 @@ class CommentForm extends React.Component {
 
     this.props.addComment(author.value, body.value);
   }
+
 }
 
 export default CommentBox;

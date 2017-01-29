@@ -5,5 +5,5 @@ import './index.scss';
 
 ReactDOM.render(
   <CommentBox />,
-  document.getElementById('root')
+  document.getElementById('react-comment')
 );
