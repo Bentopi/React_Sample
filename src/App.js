@@ -98,17 +98,19 @@ class Comment extends React.Component {
   render() {
     return(
       <div className='comment row'>
-        <div className='avatar'></div>
-        <div className='comment-right'>
-          <div className='comment-top'>
-            <strong>{this.props.author}</strong> said:
-            <div id="delete-a" onClick={this._handleDelete.bind(this)}>
-            Delete
+        <div className='col-xs-12'>
+          <div className='avatar'></div>
+          <div className='comment-right'>
+            <div className='comment-top'>
+              <strong>{this.props.author}</strong> said:
+              <div id="delete-a" onClick={this._handleDelete.bind(this)}>
+              Delete
+              </div>
             </div>
-          </div>
-          <div className='comment-bottom'>
-            <p className='comment-body'>{this.props.body}</p>
-            <hr/>
+            <div className='comment-bottom'>
+              <p className='comment-body'>{this.props.body}</p>
+              <hr/>
+            </div>
           </div>
         </div>
       </div>
@@ -143,6 +145,8 @@ class CommentForm extends React.Component {
     let body = this._body;
 
     this.props.addComment(author.value, body.value);
+    this._body.value = '';
+    this._author.value = '';
   }
 
 }

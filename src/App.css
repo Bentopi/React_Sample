@@ -11,11 +11,24 @@ body {
 .paragraph {
   padding-bottom: 20px; }
 
+.comment-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: stretch; }
+
 .comment-box {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: stretch;
   font-family: 'Raleway', sans-serif;
   border-radius: 4px;
   padding: 2em;
-  height: 100vh;
   margin-top: 0.25em;
   background-color: rgba(255, 252, 232, 0.95);
   opacity: 1; }
