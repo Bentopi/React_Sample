@@ -10,9 +10,10 @@ class CommentBox extends React.Component {
       comments: [
         { id:1, author: 'Morgan Freeman', body: 'This is super informative!' },
         { id:2, author:'Taylor Swift', body:'I have no idea what I\'m doing here.'},
-        { id:3, author:'Brian Simmons', body:'I love Fairlife Chocolate Milk'}
+        { id:3, author:'Batman', body:'I love Chocolate Milk'}
       ]
     };
+
   }
 
   render() {
@@ -21,7 +22,7 @@ class CommentBox extends React.Component {
     let commentNodes;
 
     if (!this.state.hideComments) {
-      commentNodes = <div className='comment-list'>{comments}</div>;
+      commentNodes = <div className='comment-list col-xs-12'>{comments}</div>;
     }
 
     let buttonText = 'Hide Comments'
@@ -41,6 +42,7 @@ class CommentBox extends React.Component {
         </div>
 
         {commentNodes}
+
       </div>
   );
   }
@@ -95,25 +97,26 @@ class CommentBox extends React.Component {
 class Comment extends React.Component {
   render() {
     return(
-      <div className='comment col-xs-12'>
-        <div className='avatar'> </div>
-        <div className='comment-top'>
-          <p className='comment-author'>{this.props.author}</p>
-          <a href='#' className='comment-delete' onClick={this._handleDelete.bind(this)}>
+      <div className='comment row'>
+        <div className='avatar'></div>
+        <div className='comment-right'>
+          <div className='comment-top'>
+            <strong>{this.props.author}</strong> said:
+            <div id="delete-a" onClick={this._handleDelete.bind(this)}>
             Delete
-          </a>
+            </div>
+          </div>
+          <div className='comment-bottom'>
+            <p className='comment-body'>{this.props.body}</p>
+            <hr/>
+          </div>
         </div>
-        <div className='comment-bottom'>
-          <p className='comment-body'>{this.props.body}</p>
-        </div>
-        <hr/>
       </div>
     );
   }
   _handleDelete(event){
     event.preventDefault();
     this.props.onDelete(this.props.id);
-
   }
 }
 
