@@ -10,7 +10,7 @@ class CommentBox extends React.Component {
       comments: [
         { id:1, author: 'Morgan Freeman', body: 'This is super informative!' },
         { id:2, author:'Taylor Swift', body:'I have no idea what I\'m doing here.'},
-        { id:3, author:'Batman', body:'I love Chocolate Milk'}
+        { id:3, author:'Jackie Chan', body:'React is su[er fast!'}
       ]
     };
 
