@@ -1,4 +1,8 @@
-.main-title {
+#root {
   padding: 3em;
   text-align: center;
 }
+
+$onyx: #3E363F;
+$cinnabar: #DD403A;
+$cosmiclatte: #FFFCE8;
